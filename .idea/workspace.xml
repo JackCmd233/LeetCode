@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b72d74ec-5f83-4eaa-8c1e-0e6ec68a02ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Number2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Number_1.java" afterDir="false" />
-    </list>
+    <list default="true" id="b72d74ec-5f83-4eaa-8c1e-0e6ec68a02ca" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +13,7 @@
     <session id="2136672724">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -155,32 +148,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548597232250</updated>
-      <workItem from="1548597234094" duration="223000" />
+      <workItem from="1548597234094" duration="464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223000" />
+    <option name="totallyTimeSpent" value="464000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
+    <frame x="-69" y="39" width="1160" height="780" extended-state="0" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3384755" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" anchor="bottom" id="Event Log" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.5009074" side_tool="true" visible="true" weight="0.36268657" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49909255" weight="0.36268657" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
