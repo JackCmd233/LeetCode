@@ -155,8 +155,8 @@ public class Number2 {
  * 提供了get和set方法
  */
 class ListNode {
-     private int val;
-     private ListNode next;
+     int val;
+     ListNode next;
      ListNode(int x) {
          val = x;
          next = null;
