@@ -32,8 +32,10 @@ public class N3Solution1 {
 
         //使用双重循环
         //外面两层循环是控制resultStr的长度(一个控制头,一个控制尾部),里面一层循环用于检验是否有重复字符
+    outer1:
         for (int i = 0;i<inputLength;i++){
-         outer:for (int j=inputLength-1;j>=i;j--){
+    outer2:
+            for (int j=inputLength-1;j>=i;j--){
                 System.out.println("开始检查是否有重复字符");
                 //把假设的字符串放到temp中
                 int tempLength = j-i+1;
@@ -47,29 +49,36 @@ public class N3Solution1 {
                 do {
                     System.out.println("字符填入");
                     temp[point] = charsInput[pointHead];
-                    if ((pointHead+=1)<inputLength ){
-                        point++;
-                    }else {
-                        break ;
-                    }
                     System.out.println("pointHead:"+pointHead+","+"pointLast:"+pointLast);
+                    pointHead++;
+                    point++;
                 }while (pointHead <= pointLast);
 
+                //检查字符是否填入
+                String tempStr = String.valueOf(temp);
+                System.out.println("输出tempStr字符"+tempStr);
+
                 //检验字符内部是否存在相同的重复字符
-         inner: for (int a=0;a<tempLength;a++){
-                 for (int b=a+1;b<tempLength;b++){
-                     if(temp[a] == temp[b]){
-                         System.out.println("a:"+temp[a]);
-                         System.out.println("跳出检查,开始下一个目标的检查");
-                         break inner;
+         inner:
+                for (int a=0;a<tempLength;a++){
+                     for (int b=a+1;b<tempLength;b++){
+                            if(temp[a] == temp[b]){
+                                 System.out.println("存在重复字符:"+temp[a]);
+                                 System.out.println("跳出检查,开始下一个目标的检查");
+                                 //break inner;
+                                continue outer2;
+                            }else{
+                                ;
+                            }
                      }
                  }
-             }
-
                 //经过检查步骤的子串通过了,就把他复制给resultStr,并且直接返回结果
-                System.out.println(temp[1]);
-                resultStr = new String(temp);
-
+                System.out.println("输出最后一个字符"+temp[tempLength-1]);
+                //resultStr = new String(temp);
+                resultStr = String.valueOf(temp);
+                System.out.println("输出resultStr字符"+resultStr);
+                System.out.println("****************");
+                break outer1;
             }
         }
         return resultStr;
@@ -77,6 +86,6 @@ public class N3Solution1 {
 
     public static void main(String[] args){
         String strRs = stringToString("pwwkew");
-        System.out.println(strRs);
+        System.out.println("main函数结果:"+strRs);
     }
 }
