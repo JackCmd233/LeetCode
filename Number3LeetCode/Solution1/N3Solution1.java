@@ -1,4 +1,4 @@
-package Number3LeetCode;
+package Number3LeetCode.Solution1;
 
 /**
  * @author liu CMDEGR

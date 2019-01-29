@@ -1,3 +1,4 @@
+package Number1LeetCode;
 /**
  * @author keriezhang
  * @date 2019/1/27
@@ -14,7 +15,7 @@
      * 因为 nums[0] + nums[1] = 2 + 7 = 9
      * 所以返回 [0, 1]
  */
-public class Number_1 {
+public class Number1Solution1 {
     public static int[] twoSum(int[] nums, int target) {
         int num1=-2,num2=-1;
         for (int i =0 ;i<nums.length;i++){
