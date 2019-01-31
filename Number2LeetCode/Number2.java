@@ -46,7 +46,7 @@ public class Number2 {
 
         //第三步:创建一个List用于存储新的链表
         //根据新链表的长度,设置新链表
-        //这样只不过是创建了lengthSum个引用类型
+        //这样只不过是创建了lengthSum个ListNode的引用类型,并且全都指向NULL,不能使用get和set方法
         ListNode []listNodes=new ListNode[lengthSum];
         for (int i=0;i<lengthSum;i++){
             listNodes[i]=new ListNode();
@@ -54,6 +54,8 @@ public class Number2 {
 
         //第四步:把的到的个位放到第一个节点 ,十位放到第二个节点,百位放到第三个节点,.....
         for (int i=0;i<lengthSum;i++){
+            System.out.println(listNodes[0]);
+            System.out.println("-------------");
             listNodes[i].setVal(sumList1AndList2_Int[i]);
             System.out.println("存入的数字"+listNodes[i].getVal());
             //如果有下一个就把next指向下一个
