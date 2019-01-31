@@ -39,7 +39,8 @@ public class N3Solution2 {
             System.out.println(charsInput[i]);
         }
 
-        //输出,子串数组
+        //输出,子串数组`
+
         longestString = String.valueOf(charsInput);
         System.out.println("input字符串数组:"+longestString);
 
