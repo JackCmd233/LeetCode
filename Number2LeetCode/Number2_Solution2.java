@@ -1,4 +1,4 @@
-package Number2_LeetCode;
+package Number2LeetCode;
 
 /**
  * @author liu CMDEGR
