@@ -1,68 +1,82 @@
 package Number15;
 
-import java.util.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+//超时,算法没问题,时间复杂度太大
+/**
+ * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，
+ * 使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
+ * <p>
+ * 注意：答案中不可以包含重复的三元组。
+ * <p>
+ * 例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+ * <p>
+ * 满足要求的三元组集合为：
+ * [
+ * [-1, 0, 1],
+ * [-1, -1, 2]
+ * ]
+ *
+ * @author liu CMDEGR
+ */
 
 public class Solution1OfNum15 {
     public static void main(String[] args) {
-        int nums[] = {13, -5, 3, 3, -1, 13, 3, 1, -9, -4, 9, 12, 6, -9, -6, -12, -8, 3, 12, 14, 4, -15, 2, -11, 4, -12, 10, 9, -6, -3, -8, 14, 7, 3, 2,
-                -8, -7, -10, 8, -8, -7, -6, -11, 6, -7, -2, 9, -8, 8, -2, 13, -10, -2, 0, -14, -13, -4, 11, 3, -3, -7, 3, -4, 8, 13, 13, -15, -9, 10, 0, -2, -12, 1, 2, 9, 1, 8, -4, 8, -7, 9, 7, -2, -15, 14, 0, -13, -13, -12, -2, -1, -11, 8, 10, 12, 6, 8, 4, 12, 3, 11, -12, -2, -3, 5, -15, 6, -10, -4, -1, -1, -10, 13};
-        List<List<Integer>> result;
+        int[] nums = {-1, 0, 1, 2, -1, -4};
         Solution solution = new Solution();
-        result = solution.threeSum(nums);
-        System.out.println(result);
+        //solution.threeSum(nums);
+        System.out.println(solution.threeSum(nums));
     }
 }
 
 /**
- * @author liu CMDEGR
- * <p>
- * 解题步骤:
- * 第一步:排序(把正负数分开)
- * 第二步:把两个数相加为sum,如果第三个数与sum相加等于0
- * 第三步:把三个数都放在result中(注意去重复)
+ * 思路:
+ * 第一步:排序
+ * 第二步:两个累加
+ * 第三步:是否等于第三个的负数形式
  */
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new LinkedList<>();
-        int temp = 0;
-        List<Integer> tempNode = new LinkedList<>();
-        //第一步
         Arrays.sort(nums);
-/*        for (int temp1 : nums) {
-            System.out.println(temp1 + ",");
-        }*/
+        for (int temp : nums) {
+            System.out.print(temp + ",");
+        }
+        System.out.println("");
 
-        //第二步
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
+        List<List<Integer>> listResult = new LinkedList<>();
+        int temp = 0;
+        List<Integer> tempNode = new LinkedList<Integer>();
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                //System.out.println("............");
                 temp = nums[i] + nums[j];
-                temp = 0 - temp;
-                //System.out.println("temp:"+temp);
-                for (int k = j + 1; k < nums.length; k++) {
-                    if (temp == nums[k]) {
-                        //List<Integer> tempNode = new LinkedList<>();
+                for (int z = j + 1; z < nums.length; z++) {
+                    //System.out.println("============");
+                    if (temp == (0 - nums[z])) {
                         tempNode = new LinkedList<>();
-                        System.out.println(nums[i] + "," + nums[j] + "," + nums[k] + ",");
-                        ((LinkedList<Integer>) tempNode).addLast(nums[i]);
-                        ((LinkedList<Integer>) tempNode).addLast(nums[j]);
-                        ((LinkedList<Integer>) tempNode).addLast(nums[k]);
+                        //System.out.println(nums[i]+","+nums[j]+","+nums[z]+",");
+                        tempNode.add(nums[i]);
+                        tempNode.add(nums[j]);
+                        tempNode.add(nums[z]);
 
-                        //检查是否有重复的Node
-                        ListIterator listIterator = result.listIterator();
-                        if (result.contains(tempNode)) {
-                            System.out.println("已经存在相同节点");
-                        } else {
-                            ((LinkedList<List<Integer>>) result).addLast(tempNode);
-                            System.out.println("节点存入");
-                            System.out.println(nums[i] + "," + nums[j] + "," + nums[k] + ",");
-                            System.out.println("------------------------------------");
+                        if (!listResult.contains(tempNode)) {
+                            listResult.add(tempNode);
                         }
 
                     }
+                    //break;
                 }
             }
-
         }
-        return result;
+
+        //tempNode.add(3);
+        //listResult.add(tempNode);
+        return listResult;
     }
 }
+
