@@ -48,21 +48,28 @@ class Solution {
         List<Integer> tempNode = new LinkedList<>();
 
         for (int i = 0; i < nums.length - 2; i++) {
-            for (int j = i + 1; j < nums.length - 1; j++) {
-                temp = nums[i] + nums[j];
-                for (int z = j + 1; z < nums.length; z++) {
-                    if (temp == (0 - nums[z])) {
-                        tempNode = new LinkedList<>();
-                        tempNode.add(nums[i]);
-                        tempNode.add(nums[j]);
-                        tempNode.add(nums[z]);
+            //去除重复
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                for (int j = i + 1; j < nums.length - 1; j++) {
+                    temp = nums[i] + nums[j];
+                    //两数之和
+                    for (int z = j + 1; z < nums.length; z++) {
+                        if (temp == (0 - nums[z])) {
+                            tempNode = new LinkedList<>();
+                            tempNode.add(nums[i]);
+                            tempNode.add(nums[j]);
+                            tempNode.add(nums[z]);
 
-                        if (!listResult.contains(tempNode)) {
-                            listResult.add(tempNode);
+                            if (!listResult.contains(tempNode)) {
+                                listResult.add(tempNode);
+                            }
+                        } else if (Math.abs(temp) < Math.abs(nums[z])) {
+                            break;
                         }
                     }
                 }
             }
+
         }
 
         return listResult;
