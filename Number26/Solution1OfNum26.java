@@ -23,7 +23,7 @@ import java.util.Arrays;
  */
 public class Solution1OfNum26 {
     public static void main(String[] args) {
-        int[] nums = {0, 0, 1, 1,2,3,4};
+        int[] nums = {0, 0, 1, 1, 2, 3, 4};
         Solution solution = new Solution();
         int position = solution.removeDuplicates(nums);
 
@@ -59,21 +59,16 @@ class Solution {
                 if (endPosition + 1 < nums.length && nums[endPosition + 1] == repeat) {
                     endPosition++;
                 } else {
-                    //startPosition = endPosition + 1;
-                    //result++;
                     break;
                 }
             }
 
-            //System.out.println("start: " + startPosition + " end:" + endPosition);
             nums[position] = nums[startPosition];
             position++;
             if ((startPosition + 1) < nums.length && (endPosition + 1) < nums.length) {
                 startPosition = endPosition + 1;
                 endPosition++;
             }
-
-
         }
 
         for (int i = 0; i < nums.length; i++) {
