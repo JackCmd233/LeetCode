@@ -69,7 +69,7 @@ public class Number79Of2 {
     public static void main(String[] args) {
         char[][] board = {{'a', 'b'}};
         String word = "ba";
-        Solution solution = new Solution();
+        Number79Of2 solution = new Number79Of2();
         boolean exist = solution.exist(board, word);
         System.out.println(exist);
     }
