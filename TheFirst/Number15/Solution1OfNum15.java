@@ -1,8 +1,6 @@
-package Number15;
+package TheFirst.Number15;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
