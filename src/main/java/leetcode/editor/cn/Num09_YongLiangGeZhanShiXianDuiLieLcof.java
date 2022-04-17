@@ -141,8 +141,6 @@ public class Num09_YongLiangGeZhanShiXianDuiLieLcof {
         /**
          * 队列头部删除整数
          *
-         *
-         *
          * @return
          */
         public int deleteHead() {
