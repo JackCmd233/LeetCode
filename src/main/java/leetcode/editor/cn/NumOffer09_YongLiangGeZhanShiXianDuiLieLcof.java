@@ -35,6 +35,8 @@ package leetcode.editor.cn;
  */
 
 
+import java.util.Stack;
+
 /**
  * 时间：2022-12-08 15:46:23
  * 题目编号：剑指 Offer 09
@@ -45,21 +47,53 @@ public class NumOffer09_YongLiangGeZhanShiXianDuiLieLcof {
     public static void main(String[] args) {
         //Solution solution = new Num剑指 Offer 09_YongLiangGeZhanShiXianDuiLieLcof().new Solution();
         // TO TEST
+        CQueue cQueue = new CQueue();
+
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-    class CQueue {
+    static class CQueue {
+        private Stack<Integer> stackInput;
+        private Stack<Integer> stackOut;
 
         public CQueue() {
-
+            stackInput = new Stack<>();
+            stackOut = new Stack<>();
         }
 
+        /**
+         * 插入整数
+         *
+         * @param value
+         */
         public void appendTail(int value) {
-
+            stackInput.push(value);
         }
 
+        /**
+         * 头部删除整数
+         *
+         * @return
+         */
         public int deleteHead() {
-            return -1;
+            if (stackInput.empty() && stackOut.empty()) {
+                //队列为空
+                return -1;
+            }
+
+            if (!stackOut.empty()) {
+                //输出栈 不为空
+                return stackOut.pop();
+            } else {
+                //输出栈为空, 则尝试从 输入栈倒入 输出站
+                while (!stackInput.empty()) {
+                    Integer popValue = stackInput.pop();
+                    stackOut.push(popValue);
+                }
+                return stackOut.pop();
+            }
+
+            //return -1;
         }
     }
 
