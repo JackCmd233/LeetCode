@@ -20,6 +20,8 @@ package leetcode.editor.cn;
  */
 
 
+import java.util.Stack;
+
 /**
  * 时间：2022-12-09 18:09:52
  * 题目编号：剑指 Offer 06
@@ -28,7 +30,14 @@ package leetcode.editor.cn;
 public class NumOffer06_CongWeiDaoTouDaYinLianBiaoLcof {
 
     public static void main(String[] args) {
-        //Solution solution = new Num剑指 Offer 06_CongWeiDaoTouDaYinLianBiaoLcof().new Solution();
+        Solution solution = new NumOffer06_CongWeiDaoTouDaYinLianBiaoLcof.Solution();
+        ListNode head = new ListNode(2);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(3);
+
+        int[] ints = solution.reversePrint(head);
+        System.out.println(ints);
+
         // TO TEST
     }
 
@@ -42,14 +51,41 @@ public class NumOffer06_CongWeiDaoTouDaYinLianBiaoLcof {
      * ListNode(int x) { val = x; }
      * }
      */
-    class Solution {
+    static class Solution {
         public int[] reversePrint(ListNode head) {
-            return new int[]{};
+            Stack<Integer> stack = new Stack<>();
+            int[] result = {};
+            if (head == null) {
+                return result;
+            }
+            int val = head.val;
+            ListNode nextNode = head.next;
+            stack.push(val);
+            //压栈
+            while (nextNode != null) {
+                val = nextNode.val;
+                stack.push(val);
+                if (nextNode.next != null) {
+                    nextNode = nextNode.next;
+                } else {
+                    break;
+                }
+            }
+
+            //将栈转换为数组
+            int size = stack.size();
+            result = new int[size];
+            for (int i = 0; i < size; i++) {
+                Integer pop = stack.pop();
+                result[i] = pop;
+            }
+
+            return result;
         }
     }
 
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
