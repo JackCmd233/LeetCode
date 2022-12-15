@@ -20,8 +20,6 @@ package leetcode.editor.cn;
  */
 
 
-import java.util.Stack;
-
 /**
  * 时间：2022-12-09 18:09:52
  * 题目编号：剑指 Offer 06
@@ -51,36 +49,64 @@ public class NumOffer06_CongWeiDaoTouDaYinLianBiaoLcof {
      * ListNode(int x) { val = x; }
      * }
      */
+//    static class Solution {
+    //使用辅助栈, 完成
+//        public int[] reversePrint(ListNode head) {
+//            Stack<Integer> stack = new Stack<>();
+//            int[] result = {};
+//            if (head == null) {
+//                return result;
+//            }
+//            int val = head.val;
+//            ListNode nextNode = head.next;
+//            stack.push(val);
+//            //压栈
+//            while (nextNode != null) {
+//                val = nextNode.val;
+//                stack.push(val);
+//                if (nextNode.next != null) {
+//                    nextNode = nextNode.next;
+//                } else {
+//                    break;
+//                }
+//            }
+//
+//            //将栈转换为数组
+//            int size = stack.size();
+//            result = new int[size];
+//            for (int i = 0; i < size; i++) {
+//                Integer pop = stack.pop();
+//                result[i] = pop;
+//            }
+//
+//            return result;
+//        }
+//    }
+//
+
+
+    /**
+     * 使用递归解决
+     */
     static class Solution {
+        int[] res;
+        int i = 0;
+        int j = 0;
+
         public int[] reversePrint(ListNode head) {
-            Stack<Integer> stack = new Stack<>();
-            int[] result = {};
+            solve(head);
+            return res;
+        }
+
+        public void solve(ListNode head) {
             if (head == null) {
-                return result;
+                res = new int[i];
+                return;
             }
-            int val = head.val;
-            ListNode nextNode = head.next;
-            stack.push(val);
-            //压栈
-            while (nextNode != null) {
-                val = nextNode.val;
-                stack.push(val);
-                if (nextNode.next != null) {
-                    nextNode = nextNode.next;
-                } else {
-                    break;
-                }
-            }
-
-            //将栈转换为数组
-            int size = stack.size();
-            result = new int[size];
-            for (int i = 0; i < size; i++) {
-                Integer pop = stack.pop();
-                result[i] = pop;
-            }
-
-            return result;
+            i++;
+            solve(head.next);
+            res[j] = head.val;
+            j++;
         }
     }
 
